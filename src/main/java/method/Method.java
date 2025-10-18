@@ -31,6 +31,15 @@ public class Method {
             String[] tokens;
             //커스텀 구분자가 있을 경우에는 split 함수를 사용하여 숫자들을 분리, 없으면 전체 숫자 문자열을 한 토큰으로 처리
             if(delimiters.isEmpty()){tokens = numbers.split(delimiters);} else {tokens = new String[]{numbers};}
+            // 합계 넣을 변수 초기화
+            int sum = 0;
+            // 분리된 각 토큰 숫자 문자열에 대해 반복. token이 비었을 경우에는 문자열들을 정수로 변환하여 합을 sum에 저장 후 반환
+            for (String token: tokens) {
+                if(!token.isEmpty()) {sum += Integer.parseInt(token);
+                    return sum;
+                }
+            }
+
 
 
         }
