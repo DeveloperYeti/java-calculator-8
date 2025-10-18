@@ -25,6 +25,8 @@ public class Method {
             customDelimiter = customDelimiter.replaceAll("([\\^$|?.*+(){}!@#,:;'-_~`><])", "\\\\$1");
             // 구분자 문자열에 저장하여 나중에 분리할 때 사용.
             delimiters = customDelimiter;
+            // \n이후 입력 끝까지 숫자 문자열만 분리하여 저장
+            numbers = input.substring(delimiterEnd+1);
 
 
 
