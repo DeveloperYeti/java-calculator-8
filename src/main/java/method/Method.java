@@ -12,6 +12,11 @@ public class Method {
         //  \n의 경우에는 실제 개행문자로 변환시키기 위해서 replace를 사용하여 변환.
         input = input.replace("\\n", "\n");
         // 커스텀 구분자 지원
+        //  "// 구분자 \n으로 정의하는 표준때문에 startsWith를 사용하여 특정 문자로 시작하는지 검사.
+        if(input.startsWith("//")){
+
+        }
+
         return 0;
     }
 
