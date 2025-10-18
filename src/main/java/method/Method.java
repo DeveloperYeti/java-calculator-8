@@ -14,7 +14,8 @@ public class Method {
         // 커스텀 구분자 지원
         //  "// 구분자 \n으로 정의하는 표준때문에 startsWith를 사용하여 특정 문자로 시작하는지 검사.
         if(input.startsWith("//")){
-
+            // 구분자 정의에 의해서 끝에 \n이 나오는 위치 검사. 구분자 구간과 숫자 경계
+            int delimiterEnd = input.indexOf("\n");
         }
 
         return 0;
