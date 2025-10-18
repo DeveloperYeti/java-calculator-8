@@ -3,48 +3,47 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 
 public class Method {
     public static int add(String input) {
-        // input이 문자열을 참조하지 않거나 ""이 비어있을 경우.
-        if (input == null || input.isEmpty()){
+        if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException("입력 값이 비어 있습니다.");
-        };
-        String delimiters = ""; // 기본 구분자 없음
-        String numbers = input;
-        //  \n의 경우에는 실제 개행문자로 변환시키기 위해서 replace를 사용하여 변환.
+        }
         input = input.replace("\\n", "\n");
-        // 커스텀 구분자 지원
-        //  "// 구분자 \n으로 정의하는 표준때문에 startsWith를 사용하여 특정 문자로 시작하는지 검사.
-        if(input.startsWith("//")){
-            // 구분자 정의에 의해서 끝에 \n이 나오는 위치 검사. 구분자 구간과 숫자 경계
+        String delimiters = "";
+        String numbers = input;
+
+        // 커스텀 구분자 정의
+        if (input.startsWith("//")) {
             int delimiterEnd = input.indexOf("\n");
-            // 개행 문자 없을시 IllegalArgumentException을 사용한 예외처리.
-            if(delimiterEnd == -1){throw new IllegalArgumentException("커스텀 구분자 형식이 맞지 않습니다.");
+            if (delimiterEnd == -1) {
+                throw new IllegalArgumentException("커스텀 구분자 형식이 맞지 않습니다.");
             }
-            // 앞에 구분자 끝난 바로 뒤 개행 전 부분을 커스텀 구분자 추출.
-            String customDelimiter = input.substring(2,delimiterEnd);
-            //커스텀 구분자 될 수 있는 문자들을 이스케이프 처리해서 안전하게 정규식 구분자로 전환.
+            String customDelimiter = input.substring(2, delimiterEnd);
             customDelimiter = customDelimiter.replaceAll("([\\^$|?.*+(){}!@#,:;'-_~`><])", "\\\\$1");
-            // 구분자 문자열에 저장하여 나중에 분리할 때 사용.
             delimiters = customDelimiter;
-            // \n이후 입력 끝까지 숫자 문자열만 분리하여 저장
-            numbers = input.substring(delimiterEnd+1);
-            //숫자 토큰 배열 선언.
-            String[] tokens;
-            //커스텀 구분자가 있을 경우에는 split 함수를 사용하여 숫자들을 분리, 없으면 전체 숫자 문자열을 한 토큰으로 처리
-            if(delimiters.isEmpty()){tokens = numbers.split(delimiters);} else {tokens = new String[]{numbers};}
-            // 합계 넣을 변수 초기화
-            int sum = 0;
-            // 분리된 각 토큰 숫자 문자열에 대해 반복. token이 비었을 경우에는 문자열들을 정수로 변환하여 합을 sum에 저장 후 반환
-            for (String token: tokens) {
-                if(!token.isEmpty()) {sum += Integer.parseInt(token);
-                    return sum;
-                }
-            }
-
-
-
+            numbers = input.substring(delimiterEnd + 1);
         }
 
-        return 0;
-    }
+        // 구분자 결정: 커스텀 구분자, 없으면 쉼표/콜론 등 기본 구분자 사용도 추가 가능
+        String[] tokens;
+        if (!delimiters.isEmpty()) {
+            tokens = numbers.split(delimiters);
+        } else {
+            // 기본 구분자 예시 (쉼표 ","와 콜론 ":"도 같이)
+            tokens = numbers.split(",|:");
+        }
 
+        int sum = 0;
+        for (String token : tokens) {
+            if (!token.isEmpty()) {
+                int number = Integer.parseInt(token);
+                if (number < 0) {
+                    throw new IllegalArgumentException("음수는 사용할 수 없습니다.");
+                }
+                sum += number;
+            }
+        }
+        return sum;
+    }
 }
+
+
+
