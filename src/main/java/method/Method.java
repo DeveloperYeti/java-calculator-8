@@ -19,6 +19,10 @@ public class Method {
             // 개행 문자 없을시 IllegalArgumentException을 사용한 예외처리.
             if(delimiterEnd == -1){throw new IllegalArgumentException("커스텀 구분자 형식이 맞지 않습니다.");
             }
+            // 앞에 구분자 끝난 바로 뒤 개행 전 부분을 커스텀 구분자 추출.
+            String customDelimiter = input.substring(2,delimiterEnd);
+
+
         }
 
         return 0;
