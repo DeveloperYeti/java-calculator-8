@@ -7,7 +7,11 @@ public class Method {
         if (input == null || input.isEmpty()){
             throw new IllegalArgumentException("입력 값이 비어 있습니다.");
         };
-
+        String delimiters = ""; // 기본 구분자 없음
+        String numbers = input;
+        //  \n의 경우에는 실제 개행문자로 변환시키기 위해서 replace를 사용하여 변환.
+        input = input.replace("\\n", "\n");
+        // 커스텀 구분자 지원
         return 0;
     }
 
