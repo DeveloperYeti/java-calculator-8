@@ -27,7 +27,10 @@ public class Method {
             delimiters = customDelimiter;
             // \n이후 입력 끝까지 숫자 문자열만 분리하여 저장
             numbers = input.substring(delimiterEnd+1);
-
+            //숫자 토큰 배열 선언.
+            String[] tokens;
+            //커스텀 구분자가 있을 경우에는 split 함수를 사용하여 숫자들을 분리, 없으면 전체 숫자 문자열을 한 토큰으로 처리
+            if(delimiters.isEmpty()){tokens = numbers.split(delimiters);} else {tokens = new String[]{numbers};}
 
 
         }
