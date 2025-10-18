@@ -21,6 +21,8 @@ public class Method {
             }
             // 앞에 구분자 끝난 바로 뒤 개행 전 부분을 커스텀 구분자 추출.
             String customDelimiter = input.substring(2,delimiterEnd);
+            //커스텀 구분자 될 수 있는 문자들을 이스케이프 처리해서 안전하게 정규식 구분자로 전환.
+            customDelimiter = customDelimiter.replaceAll("([\\^$|?.*+(){}!@#,:;'-_~`><])", "\\\\$1");
 
 
         }
