@@ -16,6 +16,9 @@ public class Method {
         if(input.startsWith("//")){
             // 구분자 정의에 의해서 끝에 \n이 나오는 위치 검사. 구분자 구간과 숫자 경계
             int delimiterEnd = input.indexOf("\n");
+            // 개행 문자 없을시 IllegalArgumentException을 사용한 예외처리.
+            if(delimiterEnd == -1){throw new IllegalArgumentException("커스텀 구분자 형식이 맞지 않습니다.");
+            }
         }
 
         return 0;
