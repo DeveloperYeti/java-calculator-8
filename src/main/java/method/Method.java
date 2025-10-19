@@ -17,7 +17,7 @@ public class Method {
                 throw new IllegalArgumentException("커스텀 구분자 형식이 맞지 않습니다.");
             }
             String customDelimiter = input.substring(2, delimiterEnd);
-            customDelimiter = customDelimiter.replaceAll("([\\^$|?.*+(){}!@#,:;'-_~`><])", "\\\\$1");
+            customDelimiter = customDelimiter.replaceAll("([\\^$|.#,:;])", "\\\\$1");
             delimiters = customDelimiter;
             numbers = input.substring(delimiterEnd + 1);
         }
