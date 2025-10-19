@@ -7,3 +7,7 @@
 - 커스텀 구분자 로직 if else 부분 변경.
 - token 체크하고 받고 합산하는 로직 부분. 음수가 나올 경우에는 IllegalArgumentException이 나오도록 추가.
 - Application 에서 test 코드를 진행할 경우에 try catch 문에서 예외를 잡아버린 뒤 다시 던지지 않아서 추가로 던지기 위해 thorw e 추가. → 테스트를 감지 할 수 있게 함.
+- while(true)를 사용 Application이 종료되지 않도록 함. 추가 사항으로 console.close()를 바깥으로 빼고 예외상황의 경우 break 문을 추가하여 console.close()로 빠질 수 있게 로직 수정
+
+
+**추가 사항으로 intellij에서 Application 메인문 실행 시 무한 로딩 되는 현상 발생. setting -> build - > build tool -> Gradle -> 빌드 실행과 테스트 실행을 Gradle -> intellij IDEA로 변경.**
