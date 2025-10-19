@@ -5,7 +5,6 @@ import method.Method;
 
 public class Application {
     public static void main(String[] args) {
-        while (true) {
             try {
                 System.out.println("덧셈할 문자열을 입력해 주세요.");
                 String input = Console.readLine();
@@ -13,10 +12,9 @@ public class Application {
                 System.out.println("결과 : " + sum);
 
             } catch (IllegalArgumentException e) {
-                System.out.println("입력 값이 올바르지 않습니다. " + e.getMessage());
-                break; // 정상 종료
+                System.out.println("잘못된 입력 값 입니다 프로그램을 종료합니다..");
+                throw e;
             }
         }
-        Console.close(); // << 반복문 바깥에서 호출
+
     }
-}

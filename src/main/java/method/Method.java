@@ -37,6 +37,7 @@ public class Method {
                 int number = Integer.parseInt(token);
                 if (number < 0) {
                     throw new IllegalArgumentException("음수는 사용할 수 없습니다.");
+
                 }
                 sum += number;
             }
