@@ -26,6 +26,13 @@
 3. 구분자로 문자열 분리 후 각 요소를 숫자로 변환
 4. 숫자들의 합을 계산하여 반환
 
+-필수 구현할 기능 목록
+
+- 두 개 이상의 숫자 및 구분자 입력 후 덧셈 결과 출력.​
+- 사용자 입력 오류 처리(예: 숫자가 아닌 입력 시 안내) (IllegalArgumentException
+- 구분자 처리 로직 구현
+- 
+
 
 # java-calculator-precourse
 - method 폴더 생성 및 클래스 생성 (IllegalAgregumentException) 출력 메세지 작성
@@ -36,7 +43,7 @@
 - 커스텀 구분자 로직 if else 부분 변경.
 - token 체크하고 받고 합산하는 로직 부분. 음수가 나올 경우에는 IllegalArgumentException이 나오도록 추가.
 - Application 에서 test 코드를 진행할 경우에 try catch 문에서 예외를 잡아버린 뒤 다시 던지지 않아서 추가로 던지기 위해 thorw e 추가. → 테스트를 감지 할 수 있게 함.
-- while(true)를 사용 Application이 종료되지 않도록 함. 추가 사항으로 console.close()를 바깥으로 빼고 예외상황의 경우 break 문을 추가하여 console.close()로 빠질 수 있게 로직 수정
+- while(true)를 사용 Application이 종료되지 않도록 함. 추가 사항으로 console.close()를 바깥으로 빼고 예외상황의 경우 break 문을 추가하여 console.close()로 빠질 수 있게 로직 수정 ** (삭제) 테스트 이슈
 - Sout - > 덧셈할 문장을 입력해 주세요. -> 추가
 - 테스트 코드 IllegalArgumentExaception이 예외 처리 되어서 한번더 throw e 로 에러 코드 던짐. 추가 사항으로 while문을 사용할 경우 코드가 죽지 않아서 첫번째 Test 오류 발생 while 문 삭제.
 
